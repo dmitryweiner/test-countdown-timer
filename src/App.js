@@ -1,25 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {CountdownCircleTimer} from "react-countdown-circle-timer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+         <CountdownCircleTimer
+        key={1}
+        isPlaying
+        duration={10}
+        colors={[['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']]}
+        onComplete={() => {
+          console.log('timer complete');
+          return [true, 1000];
+        }}
+      >
+        {({ remainingTime }) => remainingTime}
+      </CountdownCircleTimer>
   );
 }
 
